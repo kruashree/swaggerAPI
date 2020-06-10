@@ -5,7 +5,7 @@ info:
   termsOfService: terms
   contact:
     name: krupa
-    email: krupajanardhan@gmail.com
+    email: shreekrupa@gmail.com
   version: 1.0.0
 servers:
 - url: /
@@ -46,7 +46,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              $ref: '#/components/schemas/product'
       responses:
         "201":
           description: product added
@@ -67,9 +67,26 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                $ref: '#/components/schemas/product'
 components:
   schemas:
+    product:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1234
+        name:
+          type: string
+          example: yoga pant
+        description:
+          type: string
+          example: yoga pant
+        image-title:
+          type: string
+          example: comfort yoga pant
     inline_response_200:
       properties:
         id:
@@ -78,21 +95,3 @@ components:
         name:
           type: string
           example: shorts
-    body:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 413
-        name:
-          type: string
-          example: jersey top
-    inline_response_200_1:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 400
-        name:
-          type: string
-          example: yoga-pant
