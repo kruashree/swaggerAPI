@@ -15,16 +15,16 @@ paths:
       parameters:
       - name: pageNumber
         in: query
-        description: Page number to return
+        description: return the pagenumber
         required: false
         style: form
         explode: true
         schema:
           type: integer
           example: 1
-      - name: pageSize
+      - name: pagesize
         in: query
-        description: Number of results in a page
+        description: number of results display in a page
         required: false
         style: form
         explode: true
@@ -39,7 +39,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/inline_response_200'
+                  $ref: '#/components/schemas/product'
     post:
       description: adding a product to the catalog
       requestBody:
@@ -87,11 +87,24 @@ components:
         image-title:
           type: string
           example: comfort yoga pant
-    inline_response_200:
-      properties:
-        id:
-          type: integer
-          example: 100
-        name:
-          type: string
-          example: shorts
+  parameters:
+    pageNumber:
+      name: pageNumber
+      in: query
+      description: return the pagenumber
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+        example: 1
+    PageSize:
+      name: pagesize
+      in: query
+      description: number of results display in a page
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+        example: 10
